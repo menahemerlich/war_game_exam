@@ -34,6 +34,6 @@ def play_round(player_1: dict, player_2: dict):
     if victory == "p2":
         player_2["won_pile"].append(p1_card)
         player_2["won_pile"].append(p2_card)
-    
+
 
 
