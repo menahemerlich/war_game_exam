@@ -1,4 +1,4 @@
-from war_game_esam.utils.deck import shuffle, create_deck
+from war_game_esam.utils.deck import shuffle, create_deck, compare_cards
 
 
 def create_player(*name:str) -> dict:
@@ -23,6 +23,19 @@ def init_game()->dict:
     game_dict["player_2"] = p2
     return game_dict
 
-def play_round(p1:dict,p2:dict):
-    pass
+def play_round(player_1: dict, player_2: dict):
+
+    p1_card = player_1["hand"].pop(0)
+    p2_card = player_2["hand"].pop(0)
+    victory = compare_cards(p1_card, p2_card)
+    print(victory)
+    if victory == "p1":
+        player_1["won_pile"] = player_1.get("won_pile",[]) + [p1_card], [p2_card]
+        print("Player_1 is the winner.")
+    if victory == "p2":
+        player_2["won_pile"] = player_2.get("won_pile", []) + [p2_card], [p1_card]
+        print("Player_2 is the winner.")
+    if victory == "WAR":
+        print("WAR")
+
 
