@@ -28,14 +28,16 @@ def play_round(player_1: dict, player_2: dict):
     p1_card = player_1["hand"].pop(0)
     p2_card = player_2["hand"].pop(0)
     victory = compare_cards(p1_card, p2_card)
-    print(victory)
+    #print(victory)
     if victory == "p1":
-        player_1["won_pile"] = player_1.get("won_pile",[]) + [p1_card], [p2_card]
-        print("Player_1 is the winner.")
+        player_1["won_pile"].append(p1_card)
+        player_1["won_pile"].append(p2_card)
+        #print("Player_1 is the winner.")
     if victory == "p2":
-        player_2["won_pile"] = player_2.get("won_pile", []) + [p2_card], [p1_card]
-        print("Player_2 is the winner.")
-    if victory == "WAR":
-        print("WAR")
+        player_2["won_pile"].append(p1_card)
+        player_2["won_pile"].append(p2_card)
+        #print("Player_2 is the winner.")
+    #if victory == "WAR":
+        #print("WAR")
 
 
