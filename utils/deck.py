@@ -1,3 +1,5 @@
+
+
 def create_card(rank:str,suite:str) -> dict:
     card = {}
     list_nume = ["2", "3", "4", "5", "6", "7", "8", "9", "10"]
@@ -25,9 +27,20 @@ def compare_cards(p1_card:dict, p2_card:dict) -> str:
     else:
         return "WAR"
 
-
 def create_deck() -> list[dict]:
-    pass
+    deck = []
+    card = {}
+    Keys = ["rank", "suite", "value"]
+    rank = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+    suite = ["H", "C", "D", "S"]
+    value = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+    for i in range(len(rank)):
+        for j in suite:
+            card["rank"] = rank[i]
+            card["suite"] = j
+            card["value"] = value[i]
+            deck.append(card)
+            card = {}
+    return deck
 
 def shuffle(deck:list[dict]) -> list[dict]:
-    pass
