@@ -18,8 +18,12 @@ def create_card(rank:str,suite:str) -> dict:
     return card
 
 def compare_cards(p1_card:dict, p2_card:dict) -> str:
-    pass
-
+    if p1_card["value"] > p2_card["value"]:
+        return "p1"
+    elif p1_card["value"] < p2_card["value"]:
+        return "p2"
+    else:
+        return "WAR"
 
 
 def create_deck() -> list[dict]:
